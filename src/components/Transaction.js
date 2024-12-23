@@ -7,10 +7,13 @@ const Transaction = (props) => {
   const handleTransaction = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/transactions", {
-        userId: props.userId,
-        amount: parseFloat(amount),
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_BACKEND_API}/transactions`,
+        {
+          userId: props.userId,
+          amount: parseFloat(amount),
+        }
+      );
       if (response.status === 201) {
         alert("Transaction successful!");
         setAmount("");

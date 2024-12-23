@@ -6,7 +6,7 @@ const Earnings = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/analytics/${props.userId}`)
+      .get(`${process.env.REACT_APP_BACKEND_API}/analytics/${props.userId}`)
       .then((response) => {
         setData(response.data);
       })

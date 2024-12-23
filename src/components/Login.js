@@ -10,11 +10,14 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/users", {
-        name,
-        email,
-        referrerEmail,
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_BACKEND_API}/users`,
+        {
+          name,
+          email,
+          referrerEmail,
+        }
+      );
 
       if (response.data && response.data.userId) {
         onLogin(response.data.userId);

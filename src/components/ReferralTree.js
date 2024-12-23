@@ -6,7 +6,7 @@ const ReferralTree = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/users/${props.userId}`)
+      .get(`${process.env.REACT_APP_BACKEND_API}/users/${props.userId}`)
       .then((response) => {
         setUser(response.data.user);
       })
