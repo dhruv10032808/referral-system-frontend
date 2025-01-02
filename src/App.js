@@ -22,6 +22,7 @@ function App() {
 
   const handleLogout = () => {
     localStorage.removeItem("userId");
+    localStorage.removeItem("updates");
     setUserId(null);
   };
 
